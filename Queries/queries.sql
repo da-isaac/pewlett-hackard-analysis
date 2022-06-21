@@ -19,3 +19,24 @@ AND (hire_date BETWEEN '1985-01-01' AND '1988-12-31')
 
 -- Validate new table
 SELECT * FROM retirement_info
+
+-- create query that returns employee numbers, first name, last name,
+-- and department name from the sale steam
+
+SELECT e.emp_no, e.first_name, e.last_name, di.dept_name
+FROM employees e
+INNER JOIN dept_info di
+ON di.emp_no = e.emp_no
+WHERE di.dept_name = 'Sales' 
+LIMIT 10;
+
+
+--list of retirng employees in both sales and development deparments
+--with same info as before, including the in statement
+
+SELECT e.emp_no, e.first_name, e.last_name, di.dept_name
+FROM retirement_info e
+INNER JOIN dept_info di
+ON di.emp_no = e.emp_no
+WHERE di.dept_name IN ('Sales', 'Development')
+LIMIT 10
