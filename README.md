@@ -1,19 +1,10 @@
 # pewlett-hackard-analysis
-Analysis of Hewlett Packard HR data to determine how many positions will need to be filled after mass retirement
 
 ## Overview of Project
 
 ### Purpose
 
-* Determine how many positions will need to be filled after mass retirement
-
-* Babyboomers retiring quickly, preparing for shift
-
-* Bobby is trying to determine who will be retiring in the next few years and how many positions are needing refilled
-
-* Future-proofing the company
-
-* List of retiring employees to create a mentorship program as the yprepare to leave, ensuring their roles have adequate replacements by stepping into a part-time role to assist the newly hired folks, but need to show the data to make sure it's a good idea (how many people are in those departments that would need the idea pitched to)
+The client, Bobby, has asked for help determining how many positions will need filled as the mass-retirement event, or the "silver tsunami", hits. The company, Pewlett-Hackard, wants to get ahead and be prepared so the business can function properly as many of their employees begin their new chapters in life.
 
 ## Results
 
@@ -29,14 +20,15 @@ Analysis of Hewlett Packard HR data to determine how many positions will need to
 
 ## Summary
 
-* How many roles will need to be filled as the "silver tsunami" begins to make an impact?
+* 72,458 roles will need replacements as the "silver tsunami" hits.
 
-* Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard
+* For the two titles with the most employees retiring soon (Senior Staff and Senior Engineers), each mentor in the proposed mentorship program would be responsible for training a large amount of new-hires or replacements (44 and 49 respectively). This assumes a 1:1 relationship between lost and gained employee by title. Having groups of this size will likely reduce the quality of training each new employee will get, so the company might want to consider increasing the parameters determining which employees can become a mentor. 
 
-The following queries may be used in the future to help deepen the company's understanding of the impact of the upcoming retirement wave:
+**The following queries may be used in the future to help deepen the company's understanding of the impact of the upcoming retirement wave:**
 
-* 
-'''
+* This query shows the number of eligible mentors by title. These numbers point to significantly less mentors than seem appropriate for the number of employees being lost
+
+```
 SELECT
 		title,
 		COUNT(title) "count"
@@ -44,7 +36,7 @@ FROM
 		mentorship_eligibility
 GROUP BY title
 ORDER BY "count" DESC
-'''
+```
 
 ![New_Query_1](Resources/New_Query_1.PNG)
 
