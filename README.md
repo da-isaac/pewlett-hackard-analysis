@@ -18,6 +18,7 @@ Analysis of Hewlett Packard HR data to determine how many positions will need to
 ## Results
 
 * A total of 72,458 staff members fit the established retirement criteria. The image below comes from the .csv file exported from the  "retiring_titles" table.
+
 ![retiring_titles](Resources/Retiring_Titles.PNG)
 
 * The company is projected to lose more Senior Engineers and Senior Staff than the rest of the titles combined.
@@ -44,6 +45,7 @@ FROM
 GROUP BY title
 ORDER BY "count" DESC
 '''
+
 ![New_Query_1](Resources/New_Query_1.PNG)
 
 * 
