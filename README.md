@@ -16,7 +16,7 @@ The client, Bobby, has asked for help determining how many positions will need f
 
 * A total of 1,549 staff members were born in 1965 and are recommended to be part of first wave of the proposed mentorship program.
 
-*
+* Replacing managers should be the lowest priority as that has the lowest impact relative to the other titles.
 
 ## Summary
 
@@ -30,14 +30,28 @@ The client, Bobby, has asked for help determining how many positions will need f
 
 ```
 SELECT
-		title,
-		COUNT(title) "count"
+	title,
+	COUNT(title) "count"                                                                     
 FROM
-		mentorship_eligibility
+	mentorship_eligibility
 GROUP BY title
 ORDER BY "count" DESC
 ```
 
 ![New_Query_1](Resources/New_Query_1.PNG)
 
-* 
+* It was worth considering the average time employees were with the company by title, specifically because prioritizing training replacements for employees who have been with the company the longest would ensure the least amount of knowledge is lost as possible. However, not much changes when we look at the results of the query below. The average Senior Engineer and Senior Staff have been at the company longer than any other role. This confirms the importance of ensuring these roles have a smooth transition.
+
+```
+SELECT
+	title,
+	AVG(DATE_PART('day', current_date::timestamp - from_date::timestamp)/365) AS "Working Age (yrs)"
+FROM
+	mentorship_eligibility
+GROUP BY title
+ORDER BY "Working Age (yrs)" DESC
+```
+
+![New_Query_2](Resources/New_Query_2.PNG)
+
+*NOTE:* The following link was used for help with the query above- https://www.sqlines.com/postgresql/how-to/datediff
